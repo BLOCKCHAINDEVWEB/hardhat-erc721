@@ -10,6 +10,7 @@ task("accounts", "Prints the list of accounts", async () => {
   }
 });
 
+console.log(process.env.PRIVATE_KEY)
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
@@ -18,8 +19,12 @@ module.exports = {
   networks: {
     hardhat: {
     },
-    matic: {
+    menbai: {
       url: "https://rpc-mumbai.maticvigil.com",
+      accounts: [process.env.PRIVATE_KEY]
+    },
+    matic: {
+      url: "https://rpc-mumbai.matic.today",
       accounts: [process.env.PRIVATE_KEY]
     }
   },

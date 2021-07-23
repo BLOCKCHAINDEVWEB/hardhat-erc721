@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node src/index.js",
     "build": "hardhat compile",
-    "deploy:matic": "hardhat run scripts/sample-script.js --network matic",
+    "deploy:contract": "hardhat run scripts/deploy-contract.js --network matic",
+    "deploy:nft": "hardhat run scripts/deploy-NFT.js --network matic",
+    "deploy:sign": "hardhat run scripts/sign-NFT.js --network matic",
     "local-testnet": "hardhat node",
     "test": "hardhat test"
   },
