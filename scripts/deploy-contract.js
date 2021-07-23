@@ -1,4 +1,5 @@
 const hre = require("hardhat");
+const fs = require('fs');
 require('dotenv').config();
 
 async function main() {
@@ -12,7 +13,18 @@ async function main() {
   const erc = await ERC.deploy();
   await erc.deployed();
   console.log("ERC deployed to:", erc.address); // ERC deployed to: 0x84C29225DFa41E3c493576c85b21201e636EA63E
+
+  let config = `
+    module.exports = {
+      nftaddress: "${nft.address}",
+      ercaddress: "${erc.address}",
+    }
+  `
+  
+  let data = JSON.stringify(config)
+  fs.writeFileSync('config.js', JSON.parse(data))
 }
+
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.

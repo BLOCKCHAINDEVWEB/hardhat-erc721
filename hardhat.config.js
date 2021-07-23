@@ -1,6 +1,6 @@
-require('dotenv').config();
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-ethers");
+require('dotenv').config();
 
 task("accounts", "Prints the list of accounts", async () => {
   const accounts = await ethers.getSigners();
@@ -10,31 +10,46 @@ task("accounts", "Prints the list of accounts", async () => {
   }
 });
 
-console.log(process.env.PRIVATE_KEY)
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  defaultNetwork: "matic",
+  defaultNetwork: "hardhat",
   networks: {
     hardhat: {
+      chainId: 1337
     },
-    menbai: {
-      url: "https://rpc-mumbai.maticvigil.com",
-      accounts: [process.env.PRIVATE_KEY]
-    },
+    // menbai: {
+    //   url: "https://rpc-mumbai.maticvigil.com",
+    //   accounts: [process.env.PRIVATE_KEY_USER]
+    // },
     matic: {
       url: "https://rpc-mumbai.matic.today",
-      accounts: [process.env.PRIVATE_KEY]
+      accounts: [process.env.PRIVATE_KEY_USER]
     }
   },
   solidity: {
-    version: "0.8.0",
-    settings: {
-      optimizer: {
-        enabled: true,
-        runs: 200
+    compilers: [
+      {
+        version: "0.7.3"
+      },
+      {
+        version: "0.8.4",
+        settings: {
+          optimizer: {
+            enabled: false,
+            runs: 200
+          }
+        }
       }
+    ],
+    dependencyCompiler: {
+      paths: [
+        '@openzeppelin/contracts/token/ERC721/ERC721.sol',
+        '@openzeppelin/contracts/utils/Counters.sol',
+        '@openzeppelin/contracts/access/Ownable.sol',
+        '@openzeppelin/contracts/token/ERC20/ERC20.sol'
+      ],
     }
   },
   paths: {
