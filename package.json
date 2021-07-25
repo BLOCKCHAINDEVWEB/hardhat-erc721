@@ -1,15 +1,16 @@
 {
   "name": "hardhat-erc721",
   "version": "1.0.0",
-  "description": "",
+  "description": "training validation EIP712",
   "scripts": {
-    "start": "node -r esm src/main.js",
-    "start:dev": "nodemon -r esm src/main.js",
+    "start:nft": "node -r esm src/eip712-erc721.js",
+    "start:erc": "node -r esm src/eip712-erc20.js",
     "build": "hardhat compile",
     "deploy:local": "hardhat run scripts/deploy-contract.js --network localhost",
     "deploy:contract": "hardhat run scripts/deploy-contract.js --network matic",
     "deploy:nft": "hardhat run scripts/deploy-NFT.js --network matic",
     "deploy:sign": "hardhat run scripts/sign-NFT.js --network matic",
+    "deploy:transfer": "hardhat run scripts/transfer-NFT.js --network matic",
     "local-testnet": "hardhat node",
     "test": "hardhat test"
   },
@@ -26,8 +27,7 @@
     "ethereum-waffle": "^3.4.0",
     "ethers": "^5.4.1",
     "hardhat": "^2.3.3",
-    "hardhat-dependency-compiler": "^1.1.1",
-    "nodemon": "^2.0.12"
+    "module": "^1.2.5"
   },
   "dependencies": {
     "esm": "^3.2.25"

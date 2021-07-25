@@ -14,19 +14,17 @@ task("accounts", "Prints the list of accounts", async () => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  defaultNetwork: "hardhat",
+  defaultNetwork: "matic",
   networks: {
     hardhat: {
       chainId: 1337
     },
-    // menbai: {
-    //   url: "https://rpc-mumbai.maticvigil.com",
-    //   accounts: [process.env.PRIVATE_KEY_USER]
-    // },
     matic: {
-      url: "https://rpc-mumbai.matic.today",
-      accounts: [process.env.PRIVATE_KEY_USER]
-    }
+      url: "https://rpc-mumbai.maticvigil.com",
+      accounts: [process.env.PRIVATE_KEY_USER],
+      gas: 2100000,
+      gasPrice: 8000000000
+    },
   },
   solidity: {
     compilers: [
@@ -37,20 +35,12 @@ module.exports = {
         version: "0.8.4",
         settings: {
           optimizer: {
-            enabled: false,
+            enabled: true,
             runs: 200
           }
         }
       }
     ],
-    dependencyCompiler: {
-      paths: [
-        '@openzeppelin/contracts/token/ERC721/ERC721.sol',
-        '@openzeppelin/contracts/utils/Counters.sol',
-        '@openzeppelin/contracts/access/Ownable.sol',
-        '@openzeppelin/contracts/token/ERC20/ERC20.sol'
-      ],
-    }
   },
   paths: {
     sources: "./contracts",
