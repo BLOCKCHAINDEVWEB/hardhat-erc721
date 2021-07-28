@@ -1,4 +1,5 @@
 const { expect } = require("chai");
+const { solidity } = require("ethereum-waffle");
 
 describe("NFT", function() {
   it("It should deploy the contract, mint a token, and resolve to the right URI", async function() {

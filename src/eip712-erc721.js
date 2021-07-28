@@ -13,7 +13,7 @@ const URI = "ipfs://QmaQNPLWTSKNXCvzURSi3WrkywJ1qcnYC56Dw1XMrxYZ7Z" // tokenId: 
 
 // project: ko-blockchain
 const nftaddress = '0xb3915db9c5069897ac3a10c2ad431100882ebf8a'
-const parentProvider = `https://mainnet.infura.io/v3/${process.env.INFURA_PRIVATE_KEY}`
+// const parentProvider = `https://mainnet.infura.io/v3/${process.env.INFURA_PRIVATE_KEY}`
 const maticProvider = 'https://rpc-mumbai.maticvigil.com/v1/339bfd1060db13f0f39cac79e2cca45b637c93e9'
 const provider = new ethers.providers.JsonRpcProvider(maticProvider)
 const contractXKO = new ethers.Contract(nftaddress , XKO.abi , provider)

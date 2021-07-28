@@ -3,8 +3,11 @@
 // contract address = '0xDaD0E15dD3B7561370F5CB94b4a216E6f62FE99a' // Mumbai testnet network  
 // contract address = '0x7B276A55987E3020026Bb098F15E968313Bd1aF2' // Mainnet network  
 
-## Running Sig for EIP712 signature with token ERC20  
-$ yarn start:sig  
+# Get Started
+cp .env.sample .env npm run build
+
+Running Sig for EIP712 signature with token ERC20
+$ npm run start:erc
 
 
 # ERC721  
