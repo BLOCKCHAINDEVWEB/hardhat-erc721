@@ -25,4 +25,3 @@ $ yarn deploy:nft
 
 ## Start server node  
 $ yarn start:dev  
-
